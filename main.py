@@ -2,19 +2,36 @@ import discord
 from discord.ext import commands
 import os
 
-intents = discord.Intents.all()
-bot = commands.Bot(command_prefix="/", intents=intents)
+# ===== INTENTS =====
+intents = discord.Intents.default()
+intents.members = True
+intents.message_content = True
 
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+# ===== READY EVENT =====
 @bot.event
 async def on_ready():
     print(f"Logged in as {bot.user}")
     await bot.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.watching,
-            name="Utility AI | /help | Tech support"
+            name="Utility AI | !help | Tech support"
         )
     )
 
+# ===== ERROR HANDLER (Fixes 'Application did not respond') =====
+@bot.event
+async def on_command_error(ctx, error):
+    embed = discord.Embed(
+        title="⚠️ Error",
+        description="Something went wrong while running that command.",
+        color=0xED4245
+    )
+    await ctx.send(embed=embed)
+    print(error)
+
+# ===== WELCOME MESSAGE =====
 @bot.event
 async def on_member_join(member):
     channel = discord.utils.get(member.guild.text_channels, name="welcome")
@@ -26,6 +43,7 @@ async def on_member_join(member):
         )
         await channel.send(embed=embed)
 
+# ===== COMMANDS =====
 @bot.command()
 async def ping(ctx):
     embed = discord.Embed(
@@ -57,4 +75,5 @@ async def userinfo(ctx, member: discord.Member = None):
     embed.add_field(name="ID", value=member.id)
     await ctx.send(embed=embed)
 
+# ===== RUN BOT =====
 bot.run(os.getenv("DISCORD_TOKEN"))
