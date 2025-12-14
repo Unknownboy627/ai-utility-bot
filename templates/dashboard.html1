@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Utility AI Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-color: #0f172a;
+    }
+  </style>
+</head>
+<body class="text-gray-200">
+
+  <!-- Layout -->
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-900 p-6 hidden md:block">
+      <h1 class="text-xl font-bold text-indigo-400 mb-8">Utility AI</h1>
+
+      <nav class="space-y-4">
+        <a href="#" class="block px-4 py-2 rounded bg-indigo-600 text-white">Dashboard</a>
+        <a href="#" class="block px-4 py-2 rounded hover:bg-slate-800">Bot Settings</a>
+        <a href="#" class="block px-4 py-2 rounded hover:bg-slate-800">Moderation</a>
+        <a href="#" class="block px-4 py-2 rounded hover:bg-slate-800">Premium</a>
+        <a href="#" class="block px-4 py-2 rounded hover:bg-slate-800">Logs</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-2xl font-semibold">Dashboard</h2>
+
+        <span class="px-4 py-1 rounded-full bg-green-600 text-sm">
+          Bot Online
+        </span>
+      </div>
+
+      <!-- Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Server Card -->
+        <div class="bg-slate-800 p-6 rounded-xl shadow">
+          <h3 class="text-lg font-semibold mb-2">Server</h3>
+          <p class="text-gray-400">Connected</p>
+        </div>
+
+        <!-- Commands Card -->
+        <div class="bg-slate-800 p-6 rounded-xl shadow">
+          <h3 class="text-lg font-semibold mb-2">Commands</h3>
+          <p class="text-gray-400">12 Enabled</p>
+        </div>
+
+        <!-- Premium Card -->
+        <div class="bg-slate-800 p-6 rounded-xl shadow border border-yellow-500">
+          <h3 class="text-lg font-semibold mb-2 text-yellow-400">Premium</h3>
+          <p class="text-gray-400">Not Active</p>
+        </div>
+
+      </div>
+
+      <!-- Toggle Section -->
+      <div class="mt-8 bg-slate-800 p-6 rounded-xl">
+        <h3 class="text-lg font-semibold mb-4">Quick Settings</h3>
+
+        <div class="flex items-center justify-between mb-3">
+          <span>AI Responses</span>
+          <input type="checkbox" class="w-5 h-5">
+        </div>
+
+        <div class="flex items-center justify-between">
+          <span>Moderation System</span>
+          <input type="checkbox" class="w-5 h-5">
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+          </html>
