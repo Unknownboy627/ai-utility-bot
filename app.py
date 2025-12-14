@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from database import is_user_premium 
+
 
 app = Flask(__name__)
 
