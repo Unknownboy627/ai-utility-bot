@@ -21,3 +21,7 @@ app = Flask(__name__)
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
+from auth import auth
+
+app.register_blueprint(auth)
+app.secret_key = os.getenv("SECRET_KEY")
